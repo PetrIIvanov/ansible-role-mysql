@@ -7,7 +7,7 @@
   yum:
     name:
       - "{{ item }}"
-    state: installed
+    state: present
   with_items:
     - "{{ mysql_packages }}"
     - "{{ mysql_extra_packages_rh }}"
@@ -17,7 +17,7 @@
   apt:
     name:
       - "{{ item }}"
-    state: installed
+    state: present
     update_cache: yes
   with_items:
     - "{{ mysql_packages }}"
