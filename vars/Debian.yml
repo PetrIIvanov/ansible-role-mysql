@@ -1,9 +1,11 @@
 ---
 
 mysql_packages:
-  - python-selinux
   - mysql-server
-  - python-mysqldb
+  - mysql-client
+  - python3-dev
+  - libmysqlclient-dev
+  - python3-mysqldb
 
 mysql_service: mysql
 mysql_conf_dir: "/etc/mysql"
