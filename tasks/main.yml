@@ -140,8 +140,8 @@
 - name: Create the database's
   mysql_db:
     name: "{{ item.name }}"
-    collation: "{{ item.collation }}"
-    encoding: "{{ item.encoding }}"
+    collation: "utf8_unicode_ci" #"{{ item.collation| }}"
+    encoding: "utf8"  #"{{ item.encoding|utf8 }}"
     state: present
   with_items:
     - "{{ mysql_db }}"
@@ -169,7 +169,7 @@
       - "{{ mysql_engines }}"
 
   - name: Add new engine to mysql-server
-    mysql_query:
+    community.mysql.mysql_query:
       query: "INSTALL PLUGIN IF NOT EXISTS {{ item.name }} SONAME '{{ item.soname }}'"
     with_items:
       - "{{ mysql_engines }}"
