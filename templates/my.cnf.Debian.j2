@@ -22,6 +22,7 @@ lc-messages-dir	= /usr/share/mysql
 skip-external-locking
 
 bind-address		= {{ mysql_bind_address }}
+bind-address            = {{ item.ansible_host }}
 
 #key_buffer		= 16M
 max_allowed_packet	= 16M
